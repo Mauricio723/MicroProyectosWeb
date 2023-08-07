@@ -1,3 +1,4 @@
 # RepoPrueba_01
-Repositorio para pruebas
+Repositorio para pruebas.
+
 Este es un proyecto para probar Git y GitHub.
