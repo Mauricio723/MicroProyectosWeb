@@ -13,11 +13,19 @@
 
 .divSecciones01 {
 	
-	background-color: var(--color_fondo_01, white);
+	/*background-color: var(--color_fondo_01, white); */
 	
 	color: var(--color_texto_01, black);
 	
 	margin: 5px;
 	padding: 10px;
 	
+}
+
+.divSecciones02 {
+	
+	background-color: var(--color_fondo_01, white);
+	border: 1px solid var(--color_texto_01, black);
+	margin:5px;
+	padding: 5px;
 }
