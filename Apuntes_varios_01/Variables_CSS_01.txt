@@ -1,0 +1,176 @@
+  Variables CSS
+
+resumen de datos extraidos de:
+                https://lenguajecss.com/css/cascada-css/css-custom-properties/
+
+    ---------------------------------------------------------
+	
+Las denominadas variables CSS realmente no son variables, sino que se suelen
+denominarlas asi por su parecido con la programación y porque es más fácil comprender 
+rápidamente lo que son, pero tienen sus diferencias. 
+La forma oficial de llamarlas es custom properties (propiedades personalizadas).
+
+
+  * CSS Custom Properties
+
+ Las CSS Custom Properties (muchas veces conocidas por variables CSS) son un mecanismo 
+ de CSS que permite dar un valor personalizado a las propiedades. El objetivo principal 
+ suele ser evitar escribir múltiples veces ese valor, y en su lugar, ponerle un nombre 
+ más lógico y fácil de recordar, que hará referencia al valor real.
+
+ De esta forma, si necesitamos cambiar el valor en algún momento, podemos hacerlo 
+ en esa propiedad personalizada y no en múltiples partes del documento, donde 
+ nos podríamos equivocar al añadir el mismo valor o incluso hacer mucho más difícil 
+ de mantener el código.
+
+
+  * Definir una variable CSS
+
+ Para definir una custom property haremos uso de los dos guiones -- previos al nombre 
+ que queramos utilizar. Además, debemos fijarnos en el elemento que definimos 
+ la variable, en este ejemplo la pseudoclase :root:
+
+    :root {
+      --background-color: black;
+    }
+
+ La pseudoclase :root hace referencia al elemento raíz del documento, 
+ o lo que es lo mismo, al elemento <html>. La diferencia de utilizar html o :root 
+ como selector es que este último tiene algo más de especificidad CSS. Mientras que 
+ html tiene 001, :root tendría 010.
+
+ Al colocarla en :root estamos definiendo que la custom property estará definida 
+ para el ámbito de esa etiqueta <html> (o cualquier elemento hijo), es decir, 
+ a todo el documento. Sin embargo, ya veremos que podemos aplicar estas variables 
+ sólo a partes concretas del DOM de nuestra página.
+
+ Nota: Las custom properties se suelen agrupar en las primeras líneas de un bloque CSS, 
+ separándolas por un espacio de otras propiedades estándar. Esto facilita la lectura 
+ del código.
+
+
+  * Utilizar una variable CSS
+  
+ A la hora de utilizar una custom property, hay que utilizarla dentro de 
+ la expresión var():
+
+  .element {
+    background: var(--background-color);
+  }
+
+ En este caso estamos aplicando a la propiedad background el valor que contiene 
+ --background-color para el elemento .element. Esto último es muy importante 
+ entenderlo, ya que una custom property puede tener diferentes valores dependiendo 
+ del ámbito en el que se encuentra.
+
+ Además, es muy recomendable que la expresión var() tenga dos parámetros. El primero 
+ de ellos, la custom property en cuestión, el segundo de ellos, el valor por defecto 
+ en el caso de que esa propiedad no esté definida en el ámbito actual:
+
+  .element {
+    background: var(--background-color, blue);
+  }
+
+ En nuestro caso, el elemento con clase element tendrá siempre el color de fondo negro, 
+ pero podría adoptar el color azul si la custom property no se hubiera declarado.
+ 
+   -----------------------------------------------------
+
+  * Variables CSS desde Javascript
+
+ Existen varias formas de manipular estilos CSS desde Javascript, ya sea directamente 
+ a través de la propiedad .style del elemento en cuestión, o utilizando la función 
+ global de cada página .getComputedStyle(), que devuelve los estilos computados por 
+ el navegador.
+
+ Sin embargo, en esta ocasión nos centraremos en una serie de métodos de ayuda que 
+ nos hacen la vida más fácil, ya que podemos establecer, obtener y/o eliminar 
+ propiedades CSS (custom properties incluídas) de un elemento de forma muy sencilla.
+
+ Observen el siguiente método mediante el cuál añadimos (o modificamos) la propiedad 
+ border de un elemento del DOM de nuestro HTML:
+
+    const element = document.querySelector(".element");
+    element.style.setProperty("border", "2px solid red");
+
+ Al igual que lo hacemos con una propiedad CSS, lo podríamos hacer con una 
+ custom property, la cuál quedaría añadida en el atributo HTML style del elemento.
+
+
+ Los métodos de ayuda que tenemos para modificar propiedades son los siguientes:
+
+ .setProperty(String name,String value,String priority)	  
+        Añade/cambia el valor de una propiedad CSS.
+		
+ .getPropertyValue(String name)	          
+        Obtiene el valor de una propiedad CSS.
+		
+ .getPropertyPriority(String name)	          
+        Devuelve String important si tiene prioridad.
+		
+ .removeProperty(String name)	              
+        Elimina una propiedad CSS de un elemento.
+
+
+ El método que hemos visto anteriormente es .style.setProperty(), con el cuál 
+ podemos añadir (o modificar) un valor a una propiedad. Además, si establecemos 
+ el tercer parámetro con el String important, sería equivalente a añadirle el 
+ !important al valor de la propiedad.
+
+ Por otro lado, tenemos el método opuesto .style.getPropertyValue() mediante el cuál 
+ podemos obtener el valor de una propiedad concreta o el método 
+ .style.getPropertyPriority(), con el cuál te devuelve el string important si lo 
+ tiene definido. Por último, el método .style.removeProperty() como su propio 
+ nombre indica, elimina una propiedad de un elemento.
+
+ Nota: Ten en cuenta que estas propiedades solo funcionan si los estilos CSS o 
+ custom properties han sido definidas a través del atributo style de CSS o con 
+ estos mismos métodos (que lo hacen por la misma vía).
+   
+  -------------------------------------------------------------------
+
+  * Ejemplo: Código de documento en el que se modifica una variable definida en css,
+             mediante javaScript.
+			 Extraido de: Jasoft.org
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>test variables CSS - JASOft.org</title>
+    <style>
+        :root {
+            --color: red;
+        }
+        
+        .cuadrado {
+            background-color: var(--color);
+            box-sizing: border-box;
+            width: 250px;
+            height: 250px;
+            margin: 2em auto;
+            border: 2px solid black;
+            cursor: pointer;
+            text-align: center;
+            line-height: 250px;
+            font-size: 1.5em;
+            font-weight:bold;
+        }
+    </style>
+    
+    <script>
+        n = 0;
+        var colores = ['red', 'green', 'blue', 'white', 'orange', 'yellow']; 
+        
+        function cambiaColor() {
+            n++;
+            var root = document.documentElement;
+            root.style.setProperty('--color', colores[n % colores.length]);
+        }
+    </script>
+</head>
+<body>
+    <div class="cuadrado" onclick="cambiaColor()">PÚLSAME</div>
+</body>
+</html>
+			 

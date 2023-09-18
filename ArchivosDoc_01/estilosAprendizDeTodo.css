@@ -1,0 +1,23 @@
+
+/* Definición de variables */
+
+:root {
+      --color_fondo_01: rgb(200, 210, 240);
+	  --color_texto_01: rgb(70, 80, 60);
+    }
+	
+.estiloBody_01 {
+	
+	background-color: rgb(200, 240, 220);
+}
+
+.divSecciones01 {
+	
+	background-color: var(--color_fondo_01, white);
+	
+	color: var(--color_texto_01, black);
+	
+	margin: 5px;
+	padding: 10px;
+	
+}

@@ -1,0 +1,60 @@
+html - JavaScript - Obtención de datos desde un elemento html select.
+
+  resumen de datos extraidos de: 
+  https://www.creatuwebnicaragua.com/obtener-valores-y-texto-de-un-select-con-javascript/
+  
+  -----------------------------------------------------------
+  
+  Obtener valores y texto de un select con JavaScript
+  
+ En ocasiones en nuestros proyectos web realizados con HTML, ASP o PHP requerimos 
+ obtener con JavaScript los datos de un control de formulario select también conocido 
+ por algunas personas como Control ComboBox o DropDownList; todo dependiendo 
+ del lenguaje o arquitectura de programación que estemos usando.
+
+ Pero bien, encontrar el valor de un select es realmente sencillo, pero se complica 
+ un poco cuando necesitamos capturar también el texto, es decir, la etiqueta que 
+ el visitante o usuario visualiza al momento de desplegar las opciones del control; 
+ para ello seguiremos los siguientes pasos:
+
+
+
+  * Estructura HTML
+  
+ Primeramente, agregamos a nuestro documento HTML el control de servidor select, 
+ como se muestra a continuación:
+
+ 
+  <select id="producto" name="producto" onchange="ShowSelected();">
+    <option value="12">Texto One</option>
+    <option value="13">Texto Two</option>
+  </select>
+
+
+  * Código Javascript
+
+ Luego, tendremos que escribir nuestra función utilizando para ello lenguaje Javascript.
+
+
+  <script type="text/javascript">
+  
+    function ShowSelected()
+    {
+    /* Para obtener el valor */
+    var cod = document.getElementById("producto").value;
+    alert(cod);
+  
+    /* Para obtener el texto */
+    var combo = document.getElementById("producto");
+    var selected = combo.options[combo.selectedIndex].text;
+    alert(selected);
+    }
+	
+  </script>
+
+
+ Lo que hacemos para obtener el texto del control de formularios select es acceder 
+ a las etiquetas option las cuales son elementos HTML por si solas. Para ello 
+ instanciamos el select y posteriormente encontramos el nodo option seleccionado 
+ para obtener el atributo text desde javascript.
+  
