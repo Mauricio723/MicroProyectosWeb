@@ -4,6 +4,9 @@
 :root {
       --color_fondo_01: rgb(200, 210, 240);
 	  --color_texto_01: rgb(70, 80, 60);
+	  
+	  --size_texto_01: 1em;
+	  
     }
 	
 .estiloBody_01 {
@@ -28,6 +31,9 @@
 	border: 1px solid var(--color_texto_01, black);
 	margin:5px;
 	padding: 5px;
+	
+	font-size: var(--size_texto_01);
+	
 }
 
 

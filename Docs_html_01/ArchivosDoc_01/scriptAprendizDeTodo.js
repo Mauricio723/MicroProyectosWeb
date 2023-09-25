@@ -10,6 +10,8 @@
   
   let valorInputRadio;
   
+  let sizeTextoNuevo;
+  
 function inicioApp() {
 		    	
 	rootVariableStyle = document.documentElement;
@@ -59,5 +61,12 @@ function inicioApp() {
 		establecerColoresPagina();
 	}
 	 	
+	function cambiarSizeTexto() {
+		
+		sizeTextoNuevo = document.getElementById("sizeTexto").value;
+		rootVariableStyle.style.setProperty("--size_texto_01", sizeTextoNuevo);
+		
+	}
+	
 	window.addEventListener("load", inicioApp, false);
 	

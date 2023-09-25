@@ -1,0 +1,333 @@
+Angular - ejemplo de uso de variables para controlar estilos.
+
+  * Código CSS - archivo styles.css
+
+
+
+:root {
+    --color_component_01: rgb(180, 214, 228);
+    --color_fondo_01: #FFFFFF;
+    --color_texto_01: #000000;
+    --size_texto_01 : 1em;
+}     
+
+    --------------------------------------------------
+
+  * Código en componente.css
+
+
+.divSecciones02 {
+    
+    background-color: var(--color_fondo_01, "pink");
+    color: var(--color_texto_01, "black");
+
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+    ---------------------------------------------
+
+  * Código html
+
+<div class="divSecciones01">
+
+    <div class="divSecciones02">
+
+        <div>
+            <h5>Configuración de estilos de la página</h5>
+        </div>
+
+        <div class="row gx-0">
+
+            <div class=" col divSecciones02">
+
+                <label class="mx-2" for="colorOscuroSelect">{{textoColorOscuro}}</label>
+                <select name="colorOscuroSelect" id="colorOscuroSelect" [(ngModel)]="colorOscuro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(250,128,114)">salmón #FA8072</option>
+                    <option value="rgb(233,150,122)">salmón oscuro #E9967A</option>
+                    <option value="rgb(240,128,128)">coral claro #F08080 </option>
+                    <option value="rgb(205,92,92)">indio rojo #CD5C5C </option>
+                    <option value="rgb(220,20,60)">carmesí #DC143C </option>
+                    <option value="rgb(178,34,34)">ladrillo refractario #B22222 </option>
+                    <option value="rgb(255,0,0)">rojo #FF0000</option>
+                    <option value="rgb(139,0,0)">rojo oscuro #8B0000 </option>
+                    <option value="rgb(255,127,80)"> coral #FF7F50</option>
+                    <option value="rgb(255,99,71)">tomate #FF6347</option>
+                    <option value="rgb(255,69,0)"> rojo naranja #FF4500</option>
+                    <option value="rgb(255,165,0)">naranja #FFA500</option>
+                    <option value="rgb(255,140,0)"> naranja oscuro #FF8C00</option>
+                    <option value="rgb(189,183,107)"> caqui oscuro #BDB76B</option>
+                    <option value="rgb(0,255,0)"> Lima #00FF00</option>
+                    <option value="rgb(34,139,34)"> bosque verde #228B22</option>
+                    <option value="rgb(0,128,0)">verde #008000</option>
+                    <option value="rgb(0,100,0)"> verde oscuro #006400</option>
+                    <option value="rgb(154,205,50)"> amarillo verde #9ACD32</option>
+                    <option value="rgb(0,255,127)"> primavera verde #00FF7F</option>
+                    <option value="rgb(0,250,154)"> medio primaveral #00FA9A</option>
+                    <option value="rgb(143,188,143)"> verde oscuro #8FBC8F</option>
+                    <option value="rgb(60,179,113)"> medio verde #3CB371</option>
+                    <option value="rgb(46,139,87)"> Mar verde #2E8B57</option>
+                    <option value="rgb(128,128,0)"> aceituna #808000</option>
+                    <option value="rgb(85,107,47)">verde oliva oscuro #556B2F</option>
+                    <option value="rgb(107,142,35)"> verde oliva #6B8E23</option>
+                    <option value="rgb(0,255,255)">cian #00FFFF</option>
+                    <option value="rgb(0,255,255)"> agua #00FFFF</option>
+                    <option value="rgb(102,205,170)">mediumaquamarine #66CDAA</option>
+                    <option value="rgb(0,206,209)">turquesa oscuro #00CED1</option>
+                    <option value="rgb(32,178,170)">verde claro #20B2AA</option>
+                    <option value="rgb (50,205,50)"> verde lima #32CD32</option>
+                    <option value="rgb(0,139,139)"> cian oscuro #008B8B</option>
+                    <option value="rgb(0,128,128)"> verde azulado #008080</option>
+                    <option value="rgb(0,191,255)">Depskyblue #00BFFF</option>
+                    <option value="rgb(30,144,255)">dodgerblue #1E90FF</option>
+                    <option value="rgb(70,130,180)">azul acero #4682B4</option>
+                    <option value="rgb(100,149,237)">azul aciano #6495ED</option>
+                    <option value="rgb(65,105,225)">azul real #4169E1</option>
+                    <option value="rgb(0,0,255)">azul #0000FF</option>
+                    <option value="rgb(0,0,205)">azul medio #0000CD</option>
+                    <option value="rgb(0,0,139)">azul oscuro #00008B</option>
+                    <option value="rgb(0,0,128)">Armada #000080</option>
+                    <option value="rgb(25,25,112)">medianoche azul #191970</option>
+                    <option value="rgb(123,104,238)">medio pizarra azul #7B68EE</option>
+                    <option value="rgb(106,90,205)">pizarra azul #6A5ACD</option>
+                    <option value="rgb(72,61,139)">azul oscuro #483D8B</option>
+                    <option value="rgb(255,0,255)">fucsia #FF00FF</option>
+                    <option value="rgb(255,0,255)">magenta #FF00FF</option>
+                    <option value="rgb(186,85,211)">orquídea mediana #BA55D3</option>
+                    <option value="rgb(147,112,219)">mediumpurple #9370DB</option>
+                    <option value="rgb(138, 43, 226)">Violeta Azul #8A2BE2</option>
+                    <option value="rgb(148,0,211)">Violeta oscuro #9400D3</option>
+                    <option value="rgb(153,50,204)">orquídea oscura #9932CC</option>
+                    <option value="rgb(139,0,139)">darkmagenta #8B008B</option>
+                    <option value="rgb(128, 0,128)">púrpura #800080</option>
+                    <option value="rgb(75,0,130)">índigo#4B0082</option>
+                    <option value="rgb(255,105,180)">Rosa caliente #FF69B4</option>
+                    <option value="rgb(255,20,147)">Rosa profundo #FF1493</option>
+                    <option value="rgb(219,112,147)">pálido violeta #DB7093</option>
+                    <option value="rgb(199,21,133)">medio violeta #C71585</option>
+                    <option value="rgb(169,169,169)">gris oscuro #A9A9A9</option>
+                    <option value="rgb(128,128,128)">gris #808080</option>
+                    <option value="rgb(105,105,105)">dimgray #696969</option>
+                    <option value="rgb(119,136,153)">luces grises #778899</option>
+                    <option value="rgb(112,128,144)">gris pizarra #708090</option>
+                    <option value="rgb(47,79,79)">gris oscuro #2F4F4F</option>
+                    <option value="rgb(0,0,0)" selected>negro #000000</option>
+                    <option value="rgb(188,143,143)">rosa marrón #BC8F8F</option>
+                    <option value="rgb(244,164,96)">marrón arenoso #F4A460</option>
+                    <option value="rgb(218,165,32)">vara de oro #DAA520</option>
+                    <option value="rgb(205,133,63)">Perú #CD853F</option>
+                    <option value="rgb(210,105,30)">chocolate #D2691E</option>
+                    <option value="rgb(139,69,19)">silla de montar #8B4513</option>
+                    <option value="rgb(160,82,45)">tierra de siena #A0522D</option>
+                    <option value="rgb(165,42,42)">marrón #A52A2A</option>
+                    <option value="rgb(128,0,0)">granate #800000</option>
+                    
+                </select>
+
+            </div>
+
+            <div class="col divSecciones02">
+
+                <label class="mx-2" for="colorClaroSelect">{{textoColorClaro}}</label>
+                <select name="colorClaroSelect" id="colorClaroSelect" [(ngModel)]="colorClaro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(255,160,122)">salmón ligero #FFA07A</option>
+                    <option value="rgb(255,215,0)">oro #FFD700</option>
+                    <option value="rgb(255,255,224)"> amarillo claro #FFFFE0</option>
+                    <option value="rgb(255,250,205)"> gasa de limón #FFFACD</option>
+                    <option value="rgb(250,250,210)">dorado claro #FAFAD2</option>
+                    <option value="rgb(255,239,213)">papaya #FFEFD5</option>
+                    <option value="rgb(255,228,181)"> mocasín #FFE4B5</option>
+                    <option value="rgb(255,218,185)"> melocotón #FFDAB9</option>
+                    <option value="rgb(238,232,170)"> varilla de oro pálido #EEE8AA</option>
+                    <option value="rgb(240,230,140)">caqui #F0E68C</option>
+                    <option value="rgb(255,255,0)"> amarillo #FFFF00</option>
+                    <option value="rgb(124,252,0)"> verde césped #7CFC00</option>
+                    <option value="rgb(127,255,0)">monasterio # 7FFF00</option>                    
+                    <option value="rgb(173,255,47)"> verde amarillo #ADFF2F</option>
+                    <option value="rgb(144,238,144)">verde claro #90EE90</option>
+                    <option value="rgb(152,251,152)"> Verde pálido #98FB98</option>
+                    <option value="rgb(224,255,255)">cian claro #E0FFFF</option>
+                    <option value="rgb(127,255,212)">aguamarina #7FFFD4</option>
+                    <option value="rgb(175,238,238)">paleturquesa #AFEEEE</option>
+                    <option value="rgb(64,224,208)"> turquesa #40E0D0</option>
+                    <option value="rgb(72,209,204)">medio turquesa #48D1CC</option>
+                    <option value="rgb(95,158,160)"> cadete azul #5F9EA0</option>
+                    <option value="rgb(176,224,230)">azul pálido #B0E0E6</option>
+                    <option value="rgb(173,216,230)">azul claro #ADD8E6</option>
+                    <option value="rgb(135,206,250)">cielo azul claro #87CEFA</option>
+                    <option value="rgb(135,206,235)">cielo azul #87CEEB</option>
+                    <option value="rgb(176,196,222)">azul claro #B0C4DE</option>
+                    <option value="rgb(230,230,250)">lavanda #E6E6FA</option>
+                    <option value="rgb(216,191,216)">cardo #D8BFD8</option>
+                    <option value="rgb(221,160,221)">ciruela #DDA0DD</option>
+                    <option value="rgb(238,130,238)">Violeta #EE82EE</option>
+                    <option value="rgb(218,112,214)">orquídea #DA70D6</option>
+                    <option value="rgb(255,192,203)">rosado #FFC0CB</option>
+                    <option value="rgb(255,182,193)">Rosa claro #FFB6C1</option>
+                    <option value="rgb(255,255,255)" selected>blanco #FFFFFF</option>
+                    <option value="rgb(255,250,250)">nieve #FFFAFA</option>
+                    <option value="rgb(240,255,240)">gotas de miel #F0FFF0</option>
+                    <option value="rgb(245,255,250)">crema de menta #F5FFFA</option>
+                    <option value="rgb(240,255,255)">azur#F0FFFF</option>
+                    <option value="rgb(240,248,255)">Alice azul #F0F8FF</option>
+                    <option value="rgb(248,248,255)">fantasma blanco #F8F8FF</option>
+                    <option value="rgb(245,245,245)">humo blanco #F5F5F5</option>
+                    <option value="rgb(255,245,238)">concha #FFF5EE</option>
+                    <option value="rgb(245,245,220)">beige #F5F5DC</option>
+                    <option value="rgb(253,245,230)">Oldlace #FDF5E6</option>
+                    <option value="rgb(255,250,240)">blanco floral #FFFAF0</option>
+                    <option value="rgb(255,255,240)">Marfil #FFFFF0</option>
+                    <option value="rgb(250,235,215)">blanco antiguo #FAEBD7</option>
+                    <option value="rgb(250,240,230)">lino #FAF0E6</option>
+                    <option value="rgb(255,240,245)">lavanda rubor #FFF0F5</option>
+                    <option value="rgb(255,228,225)">mistyrose #FFE4E1</option>
+                    <option value="rgb(220,220,220)">Gainsboro #DCDCDC</option>
+                    <option value="rgb(211,211,211)">gris claro #D3D3D3 </option>
+                    <option value="rgb(192,192,192)">plata #C0C0C0</option>
+                    <option value="rgb(255,248,220)">seda de maiz #FFF8DC</option>
+                    <option value="rgb(255,235,205)">blanchedalmond #FFEBCD</option>
+                    <option value="rgb(255,228,196)">sopa de mariscos #FFE4C4</option>
+                    <option value="rgb(255,222,173)">navajowhite #FFDEAD</option>
+                    <option value="rgb(245,222,179)">trigo #F5DEB3</option>
+                    <option value="rgb(222,184,135)">burlywood #DEB887</option>
+                    <option value="rgb(210,180,140)">bronceado #D2B48C</option>
+                    
+                </select>
+
+            </div>
+
+            <div class="col divSecciones02">
+
+                <input type="radio" id="fondo_oscuro" name="colores_pagina" value="fondo_oscuro"
+                    (change)="obtenerValorInputRadio('fondo_oscuro')">
+                <label for="fondo_oscuro">Fondo Oscuro</label><br>
+                <input type="radio" id="fondo_claro" name="colores_pagina" value="fondo_claro"
+                    (change)="obtenerValorInputRadio('fondo_claro')" checked>
+                <label for="fondo_claro">Fondo Claro</label><br>
+
+            </div>
+
+        </div>
+
+        <div class="divSecciones02">
+            
+            <label for="sizeTexto">Tamaño del texto </label>
+            <select name="sizeTexto" id="sizeTexto" (change)="cambiarSizeTexto()" [(ngModel)]="sizeTextoNuevo">
+                <option value="0.8em">Tamaño texto : 80%</option>
+                <option value="0.9em">Tamaño texto : 90%</option>
+                <option value="1em" selected>Tamaño texto : 100%</option>
+                <option value="1.1em">Tamaño texto : 110%</option>
+                <option value="1.2em">Tamaño texto : 120%</option>
+            </select>
+            
+        </div>
+
+    </div>
+
+    <app-seccion-inicio></app-seccion-inicio>
+
+</div>
+
+  ----------------------------------------------------------
+
+  * Código componente.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-secciones',
+  templateUrl: './secciones.component.html',
+  styleUrls: ['./secciones.component.css']
+})
+export class SeccionesComponent implements OnInit {
+
+
+  colorFondoNuevo: String = "";
+  colorTextoNuevo: String = "";
+
+  rootVariableStyle: any;
+
+  colorOscuro: String;
+  colorClaro: String;
+
+  tipoColorFondo : String;
+
+  textoColorOscuro : String = "";
+  textoColorClaro : String = "";
+
+  sizeTextoNuevo : String;
+
+  constructor() {
+
+    this.colorOscuro = "rgb(0,0,0)";
+    this.colorClaro = "rgb(255,255,255)";
+
+    this.colorFondoNuevo = "#C2D3E4"
+    this.colorTextoNuevo = "#FF00FF";
+
+    this.tipoColorFondo = "fondo_claro";
+
+    this.textoColorOscuro = "Color Texto";
+    this.textoColorClaro = "Color Fondo";
+    
+    this.sizeTextoNuevo = "1em";
+
+  }
+
+  ngOnInit(): void {
+
+    this.rootVariableStyle = document.documentElement;
+
+  }
+   
+
+  obtenerValorInputRadio(tipoFondo : String) {
+   
+    this.tipoColorFondo = tipoFondo;   
+
+    this.establecerColoresPagina();
+
+  }
+
+  establecerColoresPagina() {
+
+     if (this.tipoColorFondo === "fondo_oscuro") {
+      this.colorFondoNuevo = this.colorOscuro;
+      this.colorTextoNuevo = this.colorClaro;
+      this.textoColorOscuro = "Color Fondo";
+      this.textoColorClaro = "Color Texto";
+    }
+
+    if (this.tipoColorFondo === "fondo_claro") {
+      this.colorFondoNuevo = this.colorClaro;
+      this.colorTextoNuevo = this.colorOscuro;
+      this.textoColorClaro = "Color Fondo";
+      this.textoColorOscuro = "Color Texto";
+    }
+
+    this.rootVariableStyle.style.setProperty("--color_fondo_01", this.colorFondoNuevo);
+
+    this.rootVariableStyle.style.setProperty("--color_texto_01", this.colorTextoNuevo);
+
+  }
+
+  changeSelectColores() {
+    this.establecerColoresPagina();
+  }
+ 
+  cambiarSizeTexto() {
+    
+    this.rootVariableStyle.style.setProperty("--size_texto_01", this.sizeTextoNuevo);
+
+  }
+
+}
+
+    --------------------------------------------------------------------
+
