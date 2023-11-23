@@ -18,6 +18,31 @@
 		}
 	</style>
 	
+	<script>
+		
+	  //const fetch = require("node-fetch");
+
+  function obtenerCancion() {
+  
+      alert("Se escucha la función obtenerCancion()");
+	
+	 //fetch('https://jsonplaceholder.typicode.com/posts/1')
+	 fetch("https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&lang=es&appid=899aedcac7e60be0862511c9b9169f91")
+      .then(response => response.json())
+      .then(json => console.log(json));
+	
+    //let trackName = "society";
+    //let artistName = "Eddie Vedder";
+    //fetch("https://api.lyrics.ovh/v1/" + artistName + "/" + trackName)
+    //fetch("https://api.lyrics.ovh/v1/random")
+      //.then((response) => response.json())
+      //.then((data) => {
+      //  console.log(data);
+      //});
+  }
+	
+	</script>
+	
   </head>
   <body class="px-1">
 	<header class="container-fluid bg-light">
@@ -70,6 +95,16 @@
         <p>Párrafo prueba</p>
       </div>
     </div>
+	
+	<div class="border mx-2 my-2 px-2 py-2">
+	
+	  <h4>Prueba con Lyrics</h4>
+	  
+	  <button onClick="obtenerCancion()">Presionar para buscar canción</button>
+	
+	</div>
+	
+	<br>
 		
 	</div>    <!-- final div container -->
 	
@@ -83,7 +118,7 @@
 		</div>
 	</footer>
 	
-    <script src="ArchivosDco_01/bootstrap.bundle.min.js"></script>
+    <script src="ArchivosDoc_01/bootstrap.bundle.min.js"></script>
     
   </body>
 </html>

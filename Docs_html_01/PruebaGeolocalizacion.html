@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="ArchivosDoc_01\bootstrap.min.css" rel="stylesheet">
+
+    <title>Prueba Geolocalización</title>
+	
+	<style>
+				
+	</style>
+	
+	<script>
+	
+	  function obtenerGeolocalizacion() {
+	  
+	    let divDatosGeolocation = document.getElementById("datosGeolocation");
+		
+		divDatosGeolocation.innerHTML = "Datos de geolocalización apareciendo";
+		
+	    if (navigator.geolocation) {
+		
+	      //console.log("Está corriendo la geolocalización");
+		  const successCallback = (position) => {
+		    //console.log("latitud: " + position.coords.latitude);
+			//console.log("longitud: " + position.coords.longitude);
+			
+			if (position.coords.latitude != null) {
+			  divDatosGeolocation.innerHTML = "<h4>Latitud : " + position.coords.latitude + 
+			  "</h4><h4>Longitud : " + position.coords.longitude + "</h4>";
+			}
+			
+		  };
+		 
+		  const errorCallback = (error) => {
+		    //console.log(error);
+			divDatosGeolocation.innerHTML = "<h5>Error al obtener la ubicación</h5><h6>" 
+			+ "Código de error: " + error.code + "</h6><h6>Mensaje error : " + error.message + "</h6>";
+		  };
+		  
+		  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+		  
+	    }	else {
+	      console.log("No es posible utilizar la geolocalización");	  
+	    }
+	  }
+	
+      
+	  
+	</script>
+		
+	
+  </head>
+  <body class="px-1">
+	<header class="container-fluid bg-light">
+		
+		
+		
+		<div class="text-center border mx-1 my-1 px-2 py-2">
+			<h3>El espacio de Vilma</h3>
+		</div>		
+	</header>
+	
+	
+	<div class="container-fluid bg-secondary text-light">	
+	
+   	
+	<div class="border mx-2 my-2 px-2 py-2">
+	
+	  <div class="border mx-2 my-2 px-2 py-2">	
+	    <button onClick="obtenerGeolocalizacion()">obtener geolocalizacion</button>
+	  </div>
+	  
+	  	  
+	  <div id="datosGeolocation" class="border mx-2 my-2 px-2 py-2">
+	    
+	  </div>
+	  	  	  
+	</div>
+	
+	<br>
+		
+	</div>    <!-- final div container -->
+	
+	<footer class="bg-success text-light px-2 py-2">
+		<div class="text-center mx-2">
+			<h5>Autor: Salvador Mauricio Vilches Jerez</h5>			
+		</div>
+		<div class="mx-2">
+		    <p>Este proyecto es para pruebas, de todos modos es totalmente funcional</p>
+			<p>Está libre para ser copiado para fines académicos</p>		
+		</div>
+	</footer>
+	
+    <script src="ArchivosDoc_01/bootstrap.bundle.min.js"></script>
+    
+  </body>
+</html>

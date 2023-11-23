@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="ArchivosDoc_01\bootstrap.min.css" rel="stylesheet">
+
+    <title>Prueba de APIs 01</title>
+	
+	<style>
+				
+	</style>
+	
+	<script>
+	
+	  function mostrarDatosIngresados() {
+	  
+	    let nombreCiudad = document.getElementById("ciudadIngresada").value;
+		console.log("Datos ingresados: " + nombreCiudad);
+	  
+	  }
+	  
+	  function obtenerCoordenadas() {
+	    //console.log("Parece que alguien quiere obtener coordenadas");
+		
+		let nombreCiudad = document.getElementById("ciudadIngresada").value;
+		//console.log("Datos ingresados: " + nombreCiudad);		
+		
+		let urlApiGeo = "https://api.openweathermap.org/geo/1.0/direct?q=" + nombreCiudad + 
+		                 "&limit=5&appid=899aedcac7e60be0862511c9b9169f91";
+        
+		let datosObtenidos = "";
+		
+		let latitud = "";
+		let longitud = "";
+		
+        fetch(urlApiGeo)
+		  .then(response => response.json())
+		  .then(datos => {
+		    datosObtenidos = datos;
+			//console.log("Datos obtenidos: " + JSON.stringify(datosObtenidos));
+			
+			mostrarDatosGeo(datosObtenidos);
+			
+		  });
+		
+        //console.log("Datos obtenidos, despues de fetch: " + JSON.stringify(datosObtenidos));
+		
+		//JSON.stringify(this.datosApiCountries
+   		
+	  }
+		
+      function mostrarDatosGeo(datosGeo) {
+	      //console.log("Datos obtenidos, dentro de mostrarDatosGeo: " + JSON.stringify(datosGeo));
+		  
+		  //console.log("nombre Ciudad: " + datosGeo[0].name);
+		  //console.log("Nombre local: " + datosGeo[0].local_names.es);
+		  //console.log("Latitud: " + datosGeo[0].lat);
+		  //console.log("Longitud: " + datosGeo[0].lon);
+		  //console.log("Pais: " + datosGeo[0].country);
+		  //console.log("Provincia: " + datosGeo[0].state);
+		  
+		  let elementoDatos = document.getElementById("divDatosGeo");
+		  
+		  elementoDatos.innerHTML = "<p>Nombre Ciudad = " + datosGeo[0].name + "</p><p>Latitud: " + 
+									 datosGeo[0].lat + "</p><p>Longitud: " + datosGeo[0].lon + 
+									 "</p><p>Pais: " + datosGeo[0].country + "</p><p>Provincia: " 
+									 + datosGeo[0].state + "</p>";
+		  		  
+	  }		
+	  
+	  //const fetch = require("node-fetch");
+
+  function obtenerCancion() {
+  
+      alert("Se escucha la función obtenerCancion()");
+	
+	 //fetch('https://jsonplaceholder.typicode.com/posts/1')
+	 fetch("https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&lang=es&appid=899aedcac7e60be0862511c9b9169f91")
+      .then(response => response.json())
+      .then(json => console.log(json));
+	
+    //let trackName = "society";
+    //let artistName = "Eddie Vedder";
+    //fetch("https://api.lyrics.ovh/v1/" + artistName + "/" + trackName)
+    //fetch("https://api.lyrics.ovh/v1/random")
+      //.then((response) => response.json())
+      //.then((data) => {
+      //  console.log(data);
+      //});
+  }
+	
+	</script>
+	
+  </head>
+  <body class="px-1">
+	<header class="container-fluid bg-light">
+		
+		<div class="">
+			
+		</div>
+		
+		<div class="text-center border mx-1 my-1 px-2 py-2">
+			<h3>Prueba de APIs varias 01</h3>
+		</div>		
+	</header>
+	
+	
+	<div class="container-fluid bg-secondary text-light">	
+	
+    
+	
+	<div class="border mx-2 my-2 px-2 py-2">
+	
+	  <h4>Espacio para probar APIs</h4>
+	  
+	  <button onClick="obtenerCoordenadas()">Obtener Coordenadas</button>
+	  
+	  <div class="border mx-2 my-2 px-2 py-2">
+	  	    		
+		<input type="text" name="entradaCiudad" id="ciudadIngresada" title="Ingresar nombre ciudad">
+		  
+		<button onclick="obtenerCoordenadas()">Obtener datos ciudad</button>
+  			
+			  
+	  </div>
+	  
+	  <div id="divDatosGeo" class="border mx-2 my-2 px-2 py-2">
+	  
+	    <p>Espacio para datos de geolocalización</p>
+	  
+	  </div>
+	
+	</div>
+	
+	<br>
+		
+	</div>    <!-- final div container -->
+	
+	<footer class="bg-success text-light px-2 py-2">
+		<div class="text-center mx-2">
+			<h5>Autor: Salvador Mauricio Vilches Jerez</h5>			
+		</div>
+		<div class="mx-2">
+		    <p>Página para probar distintas APIs públicas, para usar en distintos proyectos</p>		
+		</div>
+	</footer>
+	
+    <script src="ArchivosDoc_01/bootstrap.bundle.min.js"></script>
+    
+  </body>
+</html>

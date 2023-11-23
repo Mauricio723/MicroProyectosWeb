@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="ArchivosDoc_01\bootstrap.min.css" rel="stylesheet">
+
+    <title>Prueba Canvas 01</title>
+	
+	<script src="ArchivosDoc_01\ScriptPruebaCanvas.js"></script>
+	
+	<style>
+		.estiloCanvas01 {
+		  margin-left: 20%;
+		  margin-top: 10px;
+		  border: 1px solid black;
+		}
+		
+	</style>
+	
+	<script type="application/javascript">	
+	 
+	  //window.addEventListener("load", dibujaRectangulo, false);
+	  
+	</script>
+	
+  </head>
+  <body class="px-1">
+	<header class="container-fluid bg-light">	
+	  <div class="border bg-secondary text-light mx-1 my-1 px-2 py-2">
+	    <h2 class="text-center">Prácticas con Canvas</h2>
+	  </div>      	
+					
+	</header>
+		
+	<div class="container-fluid">	
+		
+		<div class="border mx-2 my-2 px-2 py-2">
+		
+		  <h4 class="text-center">Canvas con rectángulos</h4>
+		  
+		  <canvas id="canvas01" width="600" height="400" class="estiloCanvas01">
+		    Si está leyendo esto, su navegador no puede mostrar el contenido
+			de esta sección.
+		  </canvas>
+		  
+		  <div class="border mx-2 my-2 px-2 py-2">
+		    <button onClick="dibujaRectangulo()">Mostrar rectángulos</button>
+		  </div>
+		</div>
+		
+		<div class="border mx-2 my-2 px-2 py-2">
+		
+		  <h4 class="text-center">Canvas - Prácticas con dibujos varios</h4>
+		  
+		  <canvas id="canvas02" width="400" height="300" class="estiloCanvas01">
+		    Si está leyendo esto, su navegador no puede mostrar el contenido
+			de esta sección.
+		  </canvas>
+		  
+		  <div class="border mx-2 my-2 px-2 py-2">
+		    <button onClick="inicioScript()">Mostrar dibujos</button>
+		  </div>
+		</div>
+		
+		<div class="border mx-2 my-2 px-2 py-2">
+		
+		  <h4 class="text-center">Canvas con Imagen</h4>
+		  
+		  <canvas id="canvasImagen01" width="700" height="500" class="estiloCanvas01">
+		    Si está leyendo esto, su navegador no puede mostrar el contenido
+			de esta sección.
+		  </canvas>
+		  
+		  <div class="border mx-2 my-2 px-2 py-2">
+		    <button onClick="mostrarImagen()">Mostrar Imagen</button>
+		  </div>
+		</div>			
+		
+	</div>    <!-- final div container -->
+	
+	<footer class="bg-success text-light px-2 py-2">
+		<div class="text-center mx-2">
+			<h5>Autor: Salvador Mauricio Vilches Jerez</h5>			
+		</div>
+		<div class="mx-2">
+		    <p>Este proyecto es para pruebas, de todos modos es totalmente funcional</p>
+			<p>Está libre para ser copiado para fines académicos</p>		
+		</div>
+	</footer>
+	
+    <script src="ArchivosDoc_01/bootstrap.bundle.min.js"></script>
+    
+  </body>
+</html>
