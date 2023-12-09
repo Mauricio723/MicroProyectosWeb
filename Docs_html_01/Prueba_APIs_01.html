@@ -12,6 +12,8 @@
 				
 	</style>
 	
+	<script src="ArchivosDoc_01/ScriptPruebaApis_01.js"></script>
+	
 	<script>
 	
 	  function mostrarDatosIngresados() {
@@ -20,56 +22,8 @@
 		console.log("Datos ingresados: " + nombreCiudad);
 	  
 	  }
-	  
-	  function obtenerCoordenadas() {
-	    //console.log("Parece que alguien quiere obtener coordenadas");
-		
-		let nombreCiudad = document.getElementById("ciudadIngresada").value;
-		//console.log("Datos ingresados: " + nombreCiudad);		
-		
-		let urlApiGeo = "https://api.openweathermap.org/geo/1.0/direct?q=" + nombreCiudad + 
-		                 "&limit=5&appid=899aedcac7e60be0862511c9b9169f91";
-        
-		let datosObtenidos = "";
-		
-		let latitud = "";
-		let longitud = "";
-		
-        fetch(urlApiGeo)
-		  .then(response => response.json())
-		  .then(datos => {
-		    datosObtenidos = datos;
-			//console.log("Datos obtenidos: " + JSON.stringify(datosObtenidos));
-			
-			mostrarDatosGeo(datosObtenidos);
-			
-		  });
-		
-        //console.log("Datos obtenidos, despues de fetch: " + JSON.stringify(datosObtenidos));
-		
-		//JSON.stringify(this.datosApiCountries
-   		
-	  }
-		
-      function mostrarDatosGeo(datosGeo) {
-	      //console.log("Datos obtenidos, dentro de mostrarDatosGeo: " + JSON.stringify(datosGeo));
+	  	 
 		  
-		  //console.log("nombre Ciudad: " + datosGeo[0].name);
-		  //console.log("Nombre local: " + datosGeo[0].local_names.es);
-		  //console.log("Latitud: " + datosGeo[0].lat);
-		  //console.log("Longitud: " + datosGeo[0].lon);
-		  //console.log("Pais: " + datosGeo[0].country);
-		  //console.log("Provincia: " + datosGeo[0].state);
-		  
-		  let elementoDatos = document.getElementById("divDatosGeo");
-		  
-		  elementoDatos.innerHTML = "<p>Nombre Ciudad = " + datosGeo[0].name + "</p><p>Latitud: " + 
-									 datosGeo[0].lat + "</p><p>Longitud: " + datosGeo[0].lon + 
-									 "</p><p>Pais: " + datosGeo[0].country + "</p><p>Provincia: " 
-									 + datosGeo[0].state + "</p>";
-		  		  
-	  }		
-	  
 	  //const fetch = require("node-fetch");
 
   function obtenerCancion() {
@@ -95,44 +49,61 @@
 	
   </head>
   <body class="px-1">
-	<header class="container-fluid bg-light">
-		
+	<header class="container-fluid bg-success text-light">		
 		<div class="">
-			
-		</div>
-		
-		<div class="text-center border mx-1 my-1 px-2 py-2">
-			<h3>Prueba de APIs varias 01</h3>
+		    <h2 class="ms-2">Prueba de APIs</h2>			
 		</div>		
-	</header>
-	
+		<div class="text-center mx-1 my-1 px-2 py-2">
+			<h3>Geolocalización, Clima, Ciudades, y otras...</h3>
+		</div>		
+	</header>	
 	
 	<div class="container-fluid bg-secondary text-light">	
+		
+	    <div class="border mx-2 my-2 px-2 py-2">
 	
-    
-	
-	<div class="border mx-2 my-2 px-2 py-2">
-	
-	  <h4>Espacio para probar APIs</h4>
+	        <h4 class="text-center">Espacio para probar APIs</h4>
+			
+			<div class="border border-2 border-info">
+			    <h5 class="mx-2 my-2 px-2 py-2">Espacio para consultar datos de ciudades</h5>
+	  	  
+	        <div class=" row border mx-2 my-2 px-2 py-2">
+			    <div class="col-xs-12 col-md-4 my-2">
+				    <label>Ingresar el nombre de la ciudad</label>
+					<label>presionar botón "Obtener datos"</label>
+				</div>
+				<div class="col-xs-12 col-md-4 my-2">
+				    <input type="text" name="entradaCiudad" id="ciudadIngresada" 
+					placeholder="ingresar aquí la ciudad" title="Ingresar nombre ciudad">
+				</div>
+				<div class="col-xs-12 col-md-4 my-2">
+				    <button onclick="obtenerDatosCiudad()">Obtener datos</button>
+				</div>
+	      	  		        						  
+	        </div>			
 	  
-	  <button onClick="obtenerCoordenadas()">Obtener Coordenadas</button>
+	        <div id="divDatosGeo" class="border mx-2 my-2 px-2 py-2">
 	  
-	  <div class="border mx-2 my-2 px-2 py-2">
-	  	    		
-		<input type="text" name="entradaCiudad" id="ciudadIngresada" title="Ingresar nombre ciudad">
-		  
-		<button onclick="obtenerCoordenadas()">Obtener datos ciudad</button>
-  			
+	            <p>Espacio para datos de geolocalización</p>
+	  
+	        </div>
+	        </div>
+			
+			<div class="border border-2 border-info my-2">
+			  <div class="border mx-2 my-2">
+			    <h4 class="text-center">Consulta del Clima</h4>
+				<h6 class="mx-2">Debe tener los datos de la ciudad obtenidos arriba</h6>
+			  </div>
+			  <div class="border mx-2 my-2 px-2 py-2">
+			    <button onClick="obtenerClima()">Obtener clima actual</button>
+			  </div>
+			  	 			  
 			  
-	  </div>
-	  
-	  <div id="divDatosGeo" class="border mx-2 my-2 px-2 py-2">
-	  
-	    <p>Espacio para datos de geolocalización</p>
-	  
-	  </div>
-	
-	</div>
+			  <div id="id_div_datos_clima" class="border mx-2 my-2 px-2 py-2">
+			      <p>Espacio para datos del clima</p>
+			  </div>
+			</div>
+	    </div>
 	
 	<br>
 		

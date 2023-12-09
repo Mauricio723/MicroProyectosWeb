@@ -9,6 +9,33 @@
     <title>Prueba Geolocalización</title>
 	
 	<style>
+	  .colorFondo01 {
+	    background-color: rgb(210, 220, 240);
+	  }
+	  .colorFondo02 {
+	    background-color: rgb(170, 220, 200);
+	  }
+	  .colorFondo03 {
+	    background-color: rgb(60, 80, 90);
+	  }
+	  .colorTexto01 {
+	    color: rgb(40, 30, 70);
+	  }
+	  .colorTexto02 {
+	    color: rgb(230, 200, 245);
+	  }
+	  
+	  .fontSizeParrafo01 {
+	    font-size: 1.1em;
+	  }
+	  
+	  .estiloDivCanvas {
+	    background-color: rgb(250, 250, 250);
+	  }
+	  
+	  .estiloCanvas {
+	    border: 1px solid black;
+	  }
 				
 	</style>
 	
@@ -18,18 +45,27 @@
 	  
 	    let divDatosGeolocation = document.getElementById("datosGeolocation");
 		
-		divDatosGeolocation.innerHTML = "Datos de geolocalización apareciendo";
+		divDatosGeolocation.innerHTML = "<h5>Esperando datos de Geolocalización</h5>";
 		
 	    if (navigator.geolocation) {
-		
-	      //console.log("Está corriendo la geolocalización");
-		  const successCallback = (position) => {
-		    //console.log("latitud: " + position.coords.latitude);
-			//console.log("longitud: " + position.coords.longitude);
+			     
+		  const successCallback = (position) => {		    
 			
 			if (position.coords.latitude != null) {
-			  divDatosGeolocation.innerHTML = "<h4>Latitud : " + position.coords.latitude + 
-			  "</h4><h4>Longitud : " + position.coords.longitude + "</h4>";
+			
+			  let valorLatitud = position.coords.latitude;
+			  let valorLongitud = position.coords.longitude;
+			  
+			  //divDatosGeolocation.innerHTML = "<h4>Latitud : " + position.coords.latitude + 
+			  //"</h4><h4>Longitud : " + position.coords.longitude + "</h4>";
+			  
+			  divDatosGeolocation.innerHTML = "<h4>Latitud : " + valorLatitud + 
+			  "</h4><h4>Longitud : " + valorLongitud + "</h4>";
+			  
+			  mostrarUbicacionEnMapa(valorLatitud, valorLongitud);
+			  
+			  mostrarUbicacionEnPlanisferio(valorLatitud, valorLongitud);
+			  
 			}
 			
 		  };
@@ -46,42 +82,182 @@
 	      console.log("No es posible utilizar la geolocalización");	  
 	    }
 	  }
-	
-      
-	  
-	</script>
+	      
+	  function mostrarUbicacionEnMapa(latitud, longitud) {
+	    let elementoCanvasPlanet = document.getElementById("canvasPlanisferio");
+		let contextoCanvasPlanet = elementoCanvasPlanet.getContext("2d");
 		
+		let lineaCeroLatitud = 255;
+		let lineaCeroLongitud = 395;
+		
+		let lineaLatitud = lineaCeroLatitud - Math.round(latitud * 2);   //latitud;
+		let lineaLongitud = lineaCeroLongitud + Math.round(longitud * 2);  //longitud;
+		
+        //console.log("latitud: " + latitud);
+        //console.log("longitud: " + longitud);
+		
+		//console.log("lineaLatitud: " + lineaLatitud);
+		//console.log("lineaLongitud: " + lineaLongitud);				
+		
+		let imagenPlanisferio = new Image();
+			
+	    imagenPlanisferio.src = "ArchivosDoc_01/Planisferio_paralelos_merid.jpg";
+		
+		imagenPlanisferio.onload = function() {
+		   contextoCanvasPlanet.drawImage(imagenPlanisferio, 0, 0, 820, 540);	
+		  
+		   contextoCanvasPlanet.beginPath();
+		   
+		   contextoCanvasPlanet.lineWidth= 4;
+		   
+           contextoCanvasPlanet.moveTo(0, lineaCeroLatitud);
+		   contextoCanvasPlanet.lineTo(822, lineaCeroLatitud);
+		   
+		   contextoCanvasPlanet.moveTo(lineaCeroLongitud, 0);
+		   contextoCanvasPlanet.lineTo(lineaCeroLongitud, 545);
+		
+		   contextoCanvasPlanet.closePath();
+		   
+		   contextoCanvasPlanet.strokeStyle = "green";
+		
+		   contextoCanvasPlanet.stroke();
+		  
+		  // -----------------------------------------
+		  
+		  contextoCanvasPlanet.beginPath();
+		   
+		   contextoCanvasPlanet.lineWidth= 4;
+		   
+           contextoCanvasPlanet.moveTo(0, lineaLatitud);
+		   contextoCanvasPlanet.lineTo(800, lineaLatitud);
+		   
+		   contextoCanvasPlanet.moveTo(lineaLongitud, 0);
+		   contextoCanvasPlanet.lineTo(lineaLongitud, 540);
+		
+		   contextoCanvasPlanet.closePath();
+		   
+		   contextoCanvasPlanet.strokeStyle = "blue";
+		
+		   contextoCanvasPlanet.stroke();
+		}
+					
+	  }
+	  
+      // ### ## ## ####################
+
+      function mostrarUbicacionEnPlanisferio(latitud, longitud) {
+	  
+	    let elementoCanvasPlanet = document.getElementById("canvasPlanisferio02");
+		let contextoCanvasPlanet = elementoCanvasPlanet.getContext("2d");
+		
+		let lineaCeroLatitud = 325;
+		let lineaCeroLongitud = 520;
+		
+		let lineaLatitud = lineaCeroLatitud - Math.round(latitud * 2);   //latitud;
+		let lineaLongitud = lineaCeroLongitud + Math.round(longitud * 2);  //longitud;
+		
+        //console.log("latitud: " + latitud);
+        //console.log("longitud: " + longitud);
+		
+		//console.log("lineaLatitud: " + lineaLatitud);
+		//console.log("lineaLongitud: " + lineaLongitud);				
+		
+		let imagenPlanisferio = new Image();
+			
+	    imagenPlanisferio.src = "ArchivosDoc_01/imagenes/img_planisferio_02.jpg";
+		
+		imagenPlanisferio.onload = function() {
+					
+		   contextoCanvasPlanet.drawImage(imagenPlanisferio, 0, 0, 1037, 651);	
+		  
+		   contextoCanvasPlanet.beginPath();
+		   
+		   contextoCanvasPlanet.lineWidth= 2;
+		   
+           contextoCanvasPlanet.moveTo(0, lineaCeroLatitud);
+		   contextoCanvasPlanet.lineTo(1020, lineaCeroLatitud);
+		   
+		   contextoCanvasPlanet.moveTo(lineaCeroLongitud, 0);
+		   contextoCanvasPlanet.lineTo(lineaCeroLongitud, 640);
+		
+		   contextoCanvasPlanet.closePath();
+		   
+		   contextoCanvasPlanet.strokeStyle = "green";
+		
+		   contextoCanvasPlanet.stroke();
+		  
+		  // -----------------------------------------
+		  
+		  contextoCanvasPlanet.beginPath();
+		   
+		   contextoCanvasPlanet.lineWidth= 4;
+		   
+           contextoCanvasPlanet.moveTo(0, lineaLatitud);
+		   contextoCanvasPlanet.lineTo(800, lineaLatitud);
+		   
+		   contextoCanvasPlanet.moveTo(lineaLongitud, 0);
+		   contextoCanvasPlanet.lineTo(lineaLongitud, 540);
+		
+		   contextoCanvasPlanet.closePath();
+		   
+		   contextoCanvasPlanet.strokeStyle = "blue";
+		
+		   contextoCanvasPlanet.stroke();
+		}
+					
+	  }
+	  	  	  
+	</script>		
 	
   </head>
-  <body class="px-1">
-	<header class="container-fluid bg-light">
+  <body class="px-1 colorFondo01">
+  
+	<header class="container-fluid">
+				
+		<div class="my-1 px-2 py-2 colorFondo02 colorTexto01">
+			<h3 class="text-center">El espacio de Vilma</h3>
+			<h4 class="mx-2">Pruebas con Geolocalización</h4>
+		</div>	
 		
-		
-		
-		<div class="text-center border mx-1 my-1 px-2 py-2">
-			<h3>El espacio de Vilma</h3>
-		</div>		
-	</header>
+	</header>	
 	
+	<div class="container-fluid">	
+	   	
+	  <div class="mx-1 my-2 px-1 py-1 colorFondo02">
 	
-	<div class="container-fluid bg-secondary text-light">	
+	    <div class="mx-2 my-2 px-2 py-2 colorFondo03 colorTexto02 fontSizeParrafo01">
+	      <p>Para obtener la ubicación de este dispositivo presionar el botón: 
+		  "obtener geolocalización"</p>
+	  	  <p>Si la geolocalización está bloqueada en su navegador, aparecerá una ventana emergente
+		  para preguntarle si acepta la geolocalización. Para poder continuar elegir la opción permitir.</p>
+	    </div>
 	
-   	
-	<div class="border mx-2 my-2 px-2 py-2">
-	
-	  <div class="border mx-2 my-2 px-2 py-2">	
-	    <button onClick="obtenerGeolocalizacion()">obtener geolocalizacion</button>
-	  </div>
+	    <div class="border mx-2 my-2 px-2 py-2 colorFondo03">	
+	      <button onClick="obtenerGeolocalizacion()">obtener geolocalizacion</button>
+	    </div>
 	  
 	  	  
-	  <div id="datosGeolocation" class="border mx-2 my-2 px-2 py-2">
+	  <div id="datosGeolocation" class="mx-2 my-2 px-2 py-2 colorFondo03 colorTexto02">
 	    
 	  </div>
 	  	  	  
 	</div>
 	
-	<br>
-		
+	  <br>
+	  <div class="estiloDivCanvas px-2 py-2">
+	    <canvas id="canvasPlanisferio" width="830" height="590" class="estiloCanvas">
+	      Este navegador no tiene soporte para canvas, actualize el navegador
+	  	  a una versión más reciente.
+	    </canvas>
+      </div>
+	  
+	  <div class="estiloDivCanvas px-2 py-2">
+	    <canvas id="canvasPlanisferio02" width="1038" height="652" class="estiloCanvas">
+	      Este navegador no tiene soporte para canvas, actualize el navegador
+	  	  a una versión más reciente.
+	    </canvas>
+      </div>
+	
 	</div>    <!-- final div container -->
 	
 	<footer class="bg-success text-light px-2 py-2">
