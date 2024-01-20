@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="ArchivosDoc_01\bootstrap.min.css" rel="stylesheet">
+
+    <title>Mapa Ubicación Geo</title>
+	
+	<style>	 
+				
+	</style>
+	
+	<script>	
+	    	    	
+	    function mostrarPlanisferio() {
+		
+		    /* Espacio para obtener las coordenadas ingresadas */
+			
+			let latitudIngresada = document.getElementById("inputLatitud").valueAsNumber;
+			let longitudIngresada = document.getElementById("inputLongitud").valueAsNumber;
+						
+			if (latitudIngresada < -150 || latitudIngresada > 150) {
+			    alert("El valor de latitud debe ser desde -150 hasta 150");
+			}
+			if (longitudIngresada < -120 || longitudIngresada > 120) {
+			    alert("El valor de longitud debe ser desde -120 hasta 120");
+			}
+			
+			/* ------------------------------------------- */
+		    /* Obtención del porcentaje del mapa */
+			let porcentajeMapaIngresado = document.getElementById("inputPorcentaje").valueAsNumber;
+			
+			/* --------------------------------------------------------------------- */
+			
+		    let elementoCanvasMapa = document.getElementById("canvasPlanisferio");
+			let contextoCanvasMapa = elementoCanvasMapa.getContext("2d");
+						
+			let latitudNueva = latitudIngresada;
+			let longitudNueva = longitudIngresada;
+						
+			let porcentajeMapa = porcentajeMapaIngresado;
+																
+			
+			let imagenMapa = new Image();
+			
+			imagenMapa.src = "ArchivosDoc_01/imagenes/img_planisferio_02.jpg";
+							
+			imagenMapa.onload = function() {
+			
+			    let anchoImagenMapa = imagenMapa.width;
+				let altoImagenMapa = imagenMapa.height;
+											
+			    //console.log("ancho Mapa: " + anchoImagenMapa);
+			    //console.log("alto Mapa: " + altoImagenMapa);
+				
+				let anchoMapaVista = 600;
+				let altoMapaVista = 300;
+				
+				let latitudCero_02 = altoMapaVista/2;
+				let longitudCero_02 = anchoMapaVista/2;
+				
+				let correccionPorcentajeLatitud = 1;
+				let correccionPorcentajeLongitud = 1;
+				
+				if (porcentajeMapa === 10) {
+				    anchoMapaVista = anchoImagenMapa/10;
+					altoMapaVista = altoImagenMapa/10;
+					longitudCero_02 = anchoMapaVista/2 - 1;
+					latitudCero_02 = altoMapaVista/2 + 12;
+				}
+				else if (porcentajeMapa === 25) {
+				    anchoMapaVista = anchoImagenMapa/4;
+					altoMapaVista = altoImagenMapa/4;
+					longitudCero_02 = anchoMapaVista/2 -3;
+					latitudCero_02 = altoMapaVista/2 + 26;
+				}
+				else if (porcentajeMapa === 50) {
+				    anchoMapaVista = anchoImagenMapa/2;
+					altoMapaVista = altoImagenMapa/2;
+					longitudCero_02 = anchoMapaVista/2 - 7;
+					latitudCero_02 = altoMapaVista/2 + 53;
+				}
+				else {
+				    anchoMapaVista = anchoImagenMapa;
+					altoMapaVista = altoImagenMapa;
+					longitudCero_02 = anchoMapaVista/2 - 12;
+					latitudCero_02 = altoMapaVista/2 + 107;
+					correccionPorcentajeLatitud = latitudIngresada * 0.42;
+					correccionPorcentajeLongitud = 13;
+					
+				}
+												
+				let latitudIngresadaVista = latitudIngresada * correccionPorcentajeLatitud;
+				let longitudIngresadaVista = longitudIngresada * correccionPorcentajeLongitud;
+				
+				elementoCanvasMapa.width = "" + (anchoMapaVista + 10);
+				elementoCanvasMapa.height = "" + (altoMapaVista + 10);
+			    								
+				contextoCanvasMapa.drawImage(imagenMapa, 0, 0, anchoMapaVista, altoMapaVista);
+			    
+				contextoCanvasMapa.beginPath();
+				
+				contextoCanvasMapa.lineWidth = 2;
+				
+				/* Línea coordenadas 0 */
+				
+				contextoCanvasMapa.moveTo(longitudCero_02, 0);				
+				contextoCanvasMapa.lineTo(longitudCero_02, altoMapaVista);
+				
+				contextoCanvasMapa.moveTo(0, latitudCero_02);
+				contextoCanvasMapa.lineTo(anchoMapaVista, latitudCero_02);
+				
+				/* Línea coordenadas ingresadas */
+				
+				contextoCanvasMapa.moveTo(longitudCero_02 + longitudIngresadaVista, 0);
+				contextoCanvasMapa.lineTo(longitudCero_02 + longitudIngresadaVista, altoMapaVista);
+				
+				//contextoCanvasMapa.moveTo(0, latitudCero_02 - latitudIngresadaVista);
+				//contextoCanvasMapa.lineTo(anchoMapaVista, latitudCero_02 - latitudIngresadaVista);
+				
+				/* Pruebas para ver la escala de latitud */
+				contextoCanvasMapa.moveTo(0, latitudCero_02 - 179);
+				contextoCanvasMapa.lineTo(anchoMapaVista, latitudCero_02 - 179);
+				
+				//console.log("179 / 15 : " + 179/15);
+				//console.log("");
+				
+				contextoCanvasMapa.moveTo(0, latitudCero_02 - 370);
+				contextoCanvasMapa.lineTo(anchoMapaVista, latitudCero_02 - 370);
+				
+				//console.log("370 / 30 : " + 370/30);
+				
+				contextoCanvasMapa.moveTo(0, latitudCero_02 - 598);
+				contextoCanvasMapa.lineTo(anchoMapaVista, latitudCero_02 - 598);
+				
+				//console.log("598 / 45 : " + 598/45);
+				
+				contextoCanvasMapa.moveTo(0, latitudCero_02 - 893);
+				contextoCanvasMapa.lineTo(anchoMapaVista, latitudCero_02 - 893);
+				
+				//console.log("893 / 60 : " + 893/60);
+				
+				contextoCanvasMapa.moveTo(0, latitudCero_02 - 1376);
+				contextoCanvasMapa.lineTo(anchoMapaVista, latitudCero_02 - 1376);
+				
+				//console.log("1876 / 75 : " + 1876/75);
+				
+				contextoCanvasMapa.closePath();
+				
+				contextoCanvasMapa.strokeStyle = "green";
+				
+				contextoCanvasMapa.stroke();
+				
+			};
+		    
+		}		
+	  	  	  	  
+	</script>		
+	
+  </head>
+  <body class="px-1 colorFondo01">
+  
+	<header class="container-fluid">
+				
+		<div class="">
+			<h3 class="text-center">El espacio de Vilma</h3>
+			<h4 class="mx-2">Pruebas con Geolocalización</h4>
+		</div>	
+		
+	</header>	
+	
+	<div class="container-fluid">	
+	   	
+	    <div class="mx-1 my-2 px-1 py-1">	
+		    <h5>Ubicación geográfica en el planisferio</h5>
+			<br>
+			<label for="latitud">Ingresar latitud</label>
+			<input id="inputLatitud" type="number" name="latitud" value="30" placeholder="0">
+			<br>
+			<br>
+			<label for="longitud">Ingresar Longitud</label>
+			<input id="inputLongitud" type="number" name="longitud" value="30" placeholder="0">		
+		    <br>
+			<br>
+			<label for="porcentaje">Ingresar porcentaje - Tamaño</label>
+			<input id="inputPorcentaje" type="number" name="porcentaje" value="100" placeholder="25">
+			<br>
+			<br>
+		    <button onClick="mostrarPlanisferio()">Mostrar ubicación en el mapa</button>
+			<br>	 
+	  	  	  
+	    </div>
+	
+	  <br>
+	  <div class="estiloDivCanvas px-2 py-2 border">
+	  
+	    <canvas id="canvasPlanisferio" width="700" height="350" class="estiloCanvas">
+	      Este navegador no tiene soporte para canvas, actualize el navegador
+	  	  a una versión más reciente.
+	    </canvas>
+      </div>  
+	
+	
+	</div>    <!-- final div container -->
+	
+	<footer class="bg-success text-light px-2 py-2">
+		<div class="text-center mx-2">
+			<h5>Autor: Salvador Mauricio Vilches Jerez</h5>			
+		</div>
+		<div class="mx-2">
+		    <p>Este proyecto es para pruebas, de todos modos es totalmente funcional</p>
+			<p>Está libre para ser copiado para fines académicos</p>		
+		</div>
+	</footer>
+	
+    <script src="ArchivosDoc_01/bootstrap.bundle.min.js"></script>
+    
+  </body>
+</html>
