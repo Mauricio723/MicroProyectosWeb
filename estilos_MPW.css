@@ -1,0 +1,99 @@
+/* Estilos para index_html para Micro Proyectos Web */
+:root {
+	--color_fondo_01: rgb(120, 160, 150);
+	--color_texto_01: rgb(230, 245, 245);
+	--color_fondo_02: rgb(140, 170, 190);
+	
+	--color_fondo_03: rgb(225, 250, 240);
+	--color_texto_03: rgb(70, 50, 30);
+}
+
+.estilo_body {
+	background-color: rgb(220, 240, 250);
+}
+.header_main {
+	background-color: var(--color_fondo_01, rgb(240, 245, 255));
+	color: var(--color_texto_01, rgb(70, 100, 90));
+	
+	padding: 5px;	
+}
+.estilo_titulo_01 {
+	text-align: center;
+}
+.estilo_subtitulo_01 {
+	text-align: center;
+}
+.nav_main_01 {
+	background-color: rgb(220, 240, 170);
+	padding: 5px;
+}
+/* Estilos para la barra de navegación */
+
+.li_nav_01 {
+	display: inline-block;
+	margin-top: 3px;
+	
+	padding: 5px 10px;
+	
+	background-color: black;
+	color: white;
+	text-align: center;
+	
+	border: 1px solid red;
+	
+}
+
+.li_nav_01 a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.1em;
+}
+
+.li_nav_01:hover {
+	background-color: white;
+	color: black;
+}
+
+.estilo_main_01 {
+	
+	padding: 3px;
+	
+}
+.estilo_section_01 {
+	background-color: rgb(170, 120, 150);
+	margin: 2px;
+	padding: 5px;
+}
+.estilo_article_01 {
+	background-color: var(--color_fondo_03, rgb(250, 250, 250));
+	padding: 10px;
+	
+}
+.estilo_aside_main {
+	background-color: var(--color_fondo_02, rgb(70, 100, 140));
+	padding: 5px;
+}
+
+.footer_main {
+	background-color: var(--color_fondo_01,rgb(210, 240, 230));
+	color: var(--color_texto_01, rgb(40, 50, 70));
+	padding: 10px;
+}
+
+/* Estilos para diferentes tamaños de la ventana del navegador */
+
+/*
+@media(max-width: 500px) {
+	
+}
+@media(min-width: 500px) {
+	
+}
+*/
+@media(min-width: 1000px) {
+	.main_responsivo {
+		display: grid;
+		grid-template-columns: 4fr 1fr;
+	}
+	
+}
