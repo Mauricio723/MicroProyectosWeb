@@ -1,6 +1,6 @@
-# RepoPrueba_01
-Repositorio para pruebas.
+# MicroProyectosWeb
+Repositorio para proyectos pequeños.
 
-Este es un proyecto para subir pruebas y ejemplos 
-de html, css y javaScript.
+Este es un proyecto compuesto de varios proyectos individuales,
+que los voy creando para usarlos como base de proyectos web más grandes.
 
