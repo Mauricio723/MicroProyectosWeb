@@ -19,28 +19,138 @@
 		</header>
 		<nav class="nav_main_01">
 			<ul>
-				<li class="li_nav_01"><a href="#">Navegación 01</a></li>
-				<li class="li_nav_01"><a href="#">Navegación 02</a></li>
-				<li class="li_nav_01"><a href="#">Navegación 03</a></li>
+				<li class="li_nav_01"><a onclick="window.modal_01.showModal();">Navegación 01</a></li>
+				<li class="li_nav_01"><a onclick="window.modal_01.showModal();">Navegación 02</a></li>
+				<li class="li_nav_01"><a onclick="window.modal_01.showModal();">Navegación 03</a></li>
 			</ul>
 		</nav>
 		<main class="estilo_main_01 main_responsivo">
+		
 			<section class="estilo_section_01">
-				<article class="estilo_article_01">
-					<h3 class="estilo_subtitulo_01">Descripción sobre Micro Proyectos Web</h3>
-					<p>Este proyecto está formado por varios proyectos web pequeños; cada uno de 
-					estos proyectos es completamente funcional de forma individual. Se puede acceder 
-					a los distintos proyecto por los enlaces de esta página, o ingresar al directorio 
-					que lo contiene, seleccionando el archivo correspondiente.</p>
-				</article>
+			
+				<h2 class="estilo_titulo_01">Índice de mis micro proyectos</h2>
+			
+				<div class="div_section_01 div_section_responsivo">
+				
+					<aside class="aside_section_01 aside_responsivo">
+					
+						<ul>
+							<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside 01</a></li>
+							<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside 02</a></li>
+							<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside 03</a></li>
+							<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside 04</a></li>
+							<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside 05</a></li>
+							<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside 06</a></li>
+							<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside 07</a></li>
+						</ul>
+					</aside>
+				
+					<div class="div_section_02">				
+						<article class="estilo_article_01">
+							<h3 class="estilo_subtitulo_01">Descripción sobre Micro Proyectos Web</h3>
+							<p>Este proyecto está formado por varios proyectos web pequeños; cada uno de 
+							estos proyectos es completamente funcional de forma individual. Se puede 
+							acceder	a los distintos proyecto por los enlaces de esta página, o ingresar 
+							al directorio que lo contiene, seleccionando el archivo correspondiente.</p>
+							<p>La finnalidad de este proyecto es crear documentos de facil acceso, 
+							sin necesidad de iniciar un servidor, para comprobar vistas y funciones 
+							varias; para el diseño de un sitio web más complejo con un marco de 
+							trabajo adecuado que permita crear un proyecto escalable.</p>
+							<p>En los enlaces a PruebasVarias, se puede acceder a distintas Pruebas 
+							de componentes y funciones en documentos html, realizadas durante la 
+							elaboración de varios proyectos. Estas pruebas las mantengo en este 
+							repositorio para que se puedan utilizar como una plantilla para 
+							otros proyectos.</p>
+						</article>
+						
+						<article class="estilo_article_01">
+				
+							<h3 class="estilo_titulo_01">Enlaces a proyectos</h3>
+					
+							<div class="div_enlaces_01">
+					
+								<ul>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Proyecto N° 1</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Proyecto N° 2</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Proyecto N° 3</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Proyecto N° 4</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Proyecto N° 5</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Proyecto N° 6</a></li>
+								</ul>
+					
+							</div>		
+
+							<h3 class="estilo_titulo_01">Enlaces a pruebas varias</h3>
+					
+							<div class="div_enlaces_01">
+					
+								<ul>
+									<li class="li_enlaces_01">
+										<a onclick="window.modal_01.showModal();">Prueba N° 1</a>
+									</li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Prueba N° 2</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Prueba N° 3</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Prueba N° 4</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();">Prueba N° 5</a></li>
+									<li class="li_enlaces_01"><a onclick="window.modal_01.showModal();"">Prueba N° 6</a></li>
+								</ul>
+					
+							</div>	
+				
+						</article>
+						<article class="estilo_article_01">
+					
+							<h3 class="estilo_titulo_01">Descripción Proyectos</h3>
+						
+							<dl>
+								<dt class="dt_article"><a href="ProyectosWeb_01/EstepaPatagonica/EstepaPatagonica.html">Estepa Patagónica</a></dt>
+								<dd>Descripción de proyecto estepa patagónica</dd>
+								<dt class="dt_article"><a href="ProyectosWeb_01/VilmaSoftWeb/VilmaSoft2024.html">VilmaSoftWeb</a></dt>
+								<dd>Descripción de proyecto VilmaSoftWeb</dd>
+								<dt class="dt_article">AprendizDeTodo</dt>
+								<dd>Descripción de proyecto AprendizDeTodo</dd>
+							</dl>
+						
+						</article>
+					
+					</div>
+					<!-- En el siguiente div creamos un modal para mostrar un mensaje para 
+					las funcionalidades del sitio que no están completas -->
+					<div>
+						<dialog id="modal_01">
+							<h2>Documento en etapa de desarrollo</h2>
+							<p>El destino de este enlace no está completo.</p>
+							<p>Precione el siguiente botón para cerrar esta ventana</p>
+							<button onclick="window.modal_01.close();">Cerrar</button>
+						</dialog>
+					</div>
+				</div>
 			</section>
 			<aside class="estilo_aside_main">
-				<p>Espacio para aside main</p>
+				
+				<ul>
+					<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside main 01</a></li>
+					<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside main 02</a></li>
+					<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside main 03</a></li>
+					<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside main 04</a></li>
+					<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside main 05</a></li>
+					<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside main 06</a></li>
+					<li class="li_aside_01"><a onclick="window.modal_01.showModal();">aside main 07</a></li>
+				</ul>
+						
 			</aside>
 		</main>
-		<footer class="footer_main">
-			<h4>Autor: Salvador Mauricio</h4>
-			<h4>Estado del proyecto: En etapa de desarrollo</h4>
+		<footer class="footer_main footer_responsivo">
+			<div class="div_footer_01">
+				<h4>Autor: Salvador Mauricio</h4>
+				<h4>Estado del proyecto: En etapa de desarrollo</h4>
+			</div>
+			<div class="div_footer_01">
+				<h4>Acerca de este proyecto : </h4>
+				<p>Este proyecto está formado por varios proyectos pequeños. La intención de hacerlo de 
+				esta forma es que lo inicié para ir creando pequeños proyectos, que funcionen, para ir 
+				incorporandolos en proyectos más grandes.</p>
+			</div>
 		</footer>
 	
 	</body>

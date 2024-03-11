@@ -1,10 +1,10 @@
 /* Estilos para index_html para Micro Proyectos Web */
 :root {
-	--color_fondo_01: rgb(120, 160, 150);
+	--color_fondo_01: rgb(110, 150, 140);
 	--color_texto_01: rgb(230, 245, 245);
 	--color_fondo_02: rgb(140, 170, 190);
 	
-	--color_fondo_03: rgb(225, 250, 240);
+	--color_fondo_03: rgb(235, 250, 240);
 	--color_texto_03: rgb(70, 50, 30);
 }
 
@@ -21,7 +21,8 @@
 	text-align: center;
 }
 .estilo_subtitulo_01 {
-	text-align: center;
+	margin-left: 10%;
+	
 }
 .nav_main_01 {
 	background-color: rgb(220, 240, 170);
@@ -31,16 +32,12 @@
 
 .li_nav_01 {
 	display: inline-block;
-	margin-top: 3px;
-	
-	padding: 5px 10px;
-	
+	margin-top: 3px;	
+	padding: 5px 10px;	
 	background-color: black;
 	color: white;
-	text-align: center;
-	
-	border: 1px solid red;
-	
+	text-align: center;	
+	border: 1px solid red;	
 }
 
 .li_nav_01 a {
@@ -53,6 +50,7 @@
 	background-color: white;
 	color: black;
 }
+/* fin de estilos para barra de navegación */
 
 .estilo_main_01 {
 	
@@ -60,14 +58,85 @@
 	
 }
 .estilo_section_01 {
-	background-color: rgb(170, 120, 150);
+	background-color: rgb(150, 180, 190);
 	margin: 2px;
 	padding: 5px;
 }
+.aside_section_01 {
+	background-color: var(--color_fondo_03, rgb(250, 250, 250));
+	margin-top: 5px;
+	padding: 10px;
+}
 .estilo_article_01 {
 	background-color: var(--color_fondo_03, rgb(250, 250, 250));
+	margin-top: 5px;
+	
 	padding: 10px;
 	
+}
+.estilo_article_01 p {
+	font-size: 1.1em;
+	color: var(--color_texto_03, rgb(10, 30, 100));
+}
+.estilo_article_01 dl {
+	
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 5px;
+}
+.dt_article {
+	background-color: rgb(210, 240, 230);
+	color: rgb(80, 60, 90);
+	width: 150px;
+	font-size: 1.1em;
+	margin-top: 10px;
+	
+}
+.dt_article a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.1em;
+}
+.dt_article:hover {
+	background-color: rgb(80, 60, 90);
+	color: rgb(210, 240, 230);
+}
+.estilo_article_01 dd {
+	color: rgb(50, 80, 20);
+}
+.div_enlaces_01 {
+	margin: 3px;
+	border: 1px solid green;
+}
+/* ########################## */
+
+.li_enlaces_01 {
+	display: inline-block;
+	margin-top: 3px;
+	margin-left: 5px;
+	padding: 5px 5px;	
+	background-color: green;
+	color: white;
+	text-align: center;	
+	border: 1px solid red;	
+}
+
+.li_enlaces_01 a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.1em;
+}
+
+.li_enlaces_01:hover {
+	background-color: white;
+	color: black;
+}
+
+/* ######################### */
+
+/* estilos para los asides */
+.li_aside_01:hover {
+	background-color: rgb(120, 245, 100);
 }
 .estilo_aside_main {
 	background-color: var(--color_fondo_02, rgb(70, 100, 140));
@@ -79,21 +148,31 @@
 	color: var(--color_texto_01, rgb(40, 50, 70));
 	padding: 10px;
 }
-
+.div_footer_01 {
+	
+	padding: 10px;
+}
 /* Estilos para diferentes tamaños de la ventana del navegador */
 
-/*
-@media(max-width: 500px) {
-	
+@media(max-width: 1000px) {
+	.li_aside_01 {
+		display: inline-block;
+		margin-left: 5px;
+	}
 }
-@media(min-width: 500px) {
-	
-}
-*/
+
 @media(min-width: 1000px) {
 	.main_responsivo {
 		display: grid;
 		grid-template-columns: 4fr 1fr;
 	}
-	
+	.div_section_responsivo {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		column-gap: 5px;
+	}
+	.footer_responsivo {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
 }
