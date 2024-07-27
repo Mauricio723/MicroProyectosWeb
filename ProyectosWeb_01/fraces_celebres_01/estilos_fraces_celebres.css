@@ -1,0 +1,339 @@
+/* Estilos para index_html para Micro Proyectos Web */
+:root {
+	--color_fondo_01: rgb(110, 150, 140);
+	--color_texto_01: rgb(230, 245, 245);
+	--color_fondo_02: rgb(140, 170, 190);
+	
+	--color_fondo_03: rgb(235, 250, 240);
+	--color_texto_03: rgb(70, 50, 30);
+}
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.estilo_body {
+	background-color: rgb(220, 240, 250);
+}
+.header_main {
+	background-color: var(--color_fondo_01, rgb(240, 245, 255));
+	color: var(--color_texto_01, rgb(70, 100, 90));
+	
+	padding: 5px;	
+}
+.estilo_titulo_01 {
+	text-align: center;
+}
+.estilo_subtitulo_01 {
+	margin-left: 10%;
+	
+}
+.nav_main_01 {
+	background-color: rgb(220, 240, 170);
+	padding: 5px;
+}
+/* Estilos para la barra de navegación */
+
+.li_nav_01 {
+	display: inline-block;
+	margin-top: 3px;	
+	padding: 5px 10px;	
+	background-color: black;
+	color: white;
+	text-align: center;	
+	border: 1px solid red;	
+}
+
+.li_nav_01 a {
+	text-decoration: none;
+	color: inherit;
+	/*font-size: 1.1em;*/
+}
+
+.li_nav_01:hover {
+	background-color: white;
+	color: black;
+}
+/* fin de estilos para barra de navegación */
+
+.estilo_main_01 {	
+	padding: 3px;
+	
+}
+.estilo_section_01 {
+	background-color: rgb(150, 180, 190);
+	margin: 2px;
+	padding: 5px;
+}
+
+.estilo_article_01 {
+	background-color: var(--color_fondo_03, rgb(250, 250, 250));	
+	margin-top: 5px;	
+	padding: 10px;	
+}
+.div_fraces {		
+	/*background: repeating-radial-gradient(at 50% 100% , rgb(37, 201, 37) 50px, 
+	rgb(240, 99, 64) 70px, rgb(57, 57, 233) 120px);*/
+	background: linear-gradient(rgb(54, 79, 219), rgb(114, 209, 70));	
+	/*background: url("RectanguloFondo_01.svg");*/	
+	font-family: verdana, sans-serif;
+	font-weight: 600;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.div_seleccionar_item {
+	/*background-color: rgb(160, 170, 190);*/
+	height: 50px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.control_anterior {
+	float: left;
+	background-color: rgb(65, 50, 70);
+	color: rgb(230, 230, 240);
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.control_anterior:hover {
+	background-color: white;
+	color: black;
+}
+.control_siguiente {
+	float: right;
+	background-color: rgb(65, 50, 70);
+	color: rgb(230, 230, 240);
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.control_siguiente:hover {
+	background-color: white;
+	color: black;
+}
+.texto_right {
+	text-align: right;
+}
+
+.estilo_article_01 dl {
+	
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 5px;
+}
+.dt_article {
+	background-color: rgb(210, 240, 230);
+	color: rgb(80, 60, 90);
+	width: 150px;
+	font-size: 1.1em;
+	margin-top: 10px;
+	
+}
+.dt_article a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.1em;
+}
+.dt_article:hover {
+	background-color: rgb(80, 60, 90);
+	color: rgb(210, 240, 230);
+}
+.estilo_article_01 dd {
+	color: rgb(50, 80, 20);
+}
+.div_enlaces_01 {
+	margin: 3px;
+	border: 1px solid green;
+}
+/* ########################## */
+
+.li_enlaces_01 {
+	display: inline-block;
+	margin-top: 3px;
+	margin-left: 5px;
+	padding: 5px 5px;	
+	background-color: green;
+	color: white;
+	text-align: center;	
+	border: 1px solid red;	
+}
+
+.li_enlaces_01 a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.1em;
+}
+
+.li_enlaces_01:hover {
+	background-color: white;
+	color: black;
+}
+
+/* ######################### */
+
+/* estilos para los asides */
+.aside_section_01 {
+	background-color: var(--color_fondo_03, rgb(250, 250, 250));
+	margin-top: 5px;
+	margin-left: 5px;
+	
+}
+.ul_asides {
+	list-style-type: none;
+	
+	margin-left: 5px;
+	padding-left: 5px;
+	border: 1px solid black;
+}
+.li_aside_01:hover {
+	background-color: rgb(120, 245, 100);
+	cursor: pointer;
+}
+.estilo_aside_main {
+	background-color: var(--color_fondo_02, rgb(70, 100, 140));
+	padding: 5px;
+}
+
+.footer_main {
+	background-color: var(--color_fondo_01,rgb(210, 240, 230));
+	color: var(--color_texto_01, rgb(40, 50, 70));
+	padding: 10px;
+}
+.div_footer_01 {
+	
+	padding: 10px;
+}
+
+.estilo_dialog_01 {
+	margin: 100px auto;
+	padding: 10px;
+}
+
+/* Estilos para diferentes tamaños de la ventana del navegador */
+
+@media(max-width: 500px) {
+	.div_item_frace {		
+		background-color: rgba(230, 230, 250, 0.8);	
+		color: rgb(18, 25, 44);
+		width: 320px;
+		height: 180px;
+		margin: 20px auto;		
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top: 30px;
+		border-radius: 20px;
+	}
+
+	.div_item_frace :first-child {
+		font-size: 16px;
+		margin-bottom: 5px;
+	}
+
+	.li_aside_01 {
+		display: inline-block;
+		
+		margin-left: 5px;
+	}
+}
+
+@media(min-width: 501px) {
+	.div_item_frace {		
+	background-color: rgba(230, 230, 250, 0.8);	
+	color: rgb(35, 45, 50);
+	width: 400px;
+	height: 200px;
+	margin: 20px auto;		
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 30px;
+	border-radius: 20px;
+}
+
+.div_item_frace :first-child {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+	.li_aside_01 {
+		display: inline-block;
+		color: red;
+	}
+	
+	.footer_responsivo {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+
+@media(min-width: 700px) {
+	.div_item_frace {		
+	background-color: rgba(230, 230, 250, 0.8);	
+	color: rgb(35, 45, 50);
+	width: 600px;
+	height: 200px;
+	margin: 20px auto;		
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 30px;
+	border-radius: 20px;
+}
+	
+.div_item_frace :first-child {
+	font-size: 22px;
+	margin-bottom: 5px;
+}
+
+	.li_aside_01 {		
+		color: blue;
+		margin-left: 5px;
+	}
+	
+	.footer_responsivo {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media(min-width: 1000px) {
+	.div_item_frace {		
+	background-color: rgba(230, 230, 250, 0.8);	
+	color: rgb(35, 45, 50);
+	width: 540px;
+	height: 200px;
+	margin: 20px auto;		
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 30px;
+	border-radius: 20px;
+}
+
+.div_item_frace :first-child {
+	font-size: 22px;
+	margin-bottom: 5px;
+}
+
+	.li_aside_01 {
+		display: block;
+		color: green;
+		margin-left: 0px;
+		text-align: center;
+	}
+	.main_responsivo {
+		display: grid;
+		grid-template-columns: 4fr 1fr;
+	}
+	.div_section_responsivo {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		column-gap: 5px;
+	}
+	.footer_responsivo {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
